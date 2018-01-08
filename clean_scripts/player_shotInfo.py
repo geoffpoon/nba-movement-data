@@ -18,6 +18,7 @@ from sklearn.decomposition import NMF
 
 import requests
 
+import sys
 import subprocess
 import os
 import simplejson as json
@@ -96,14 +97,14 @@ def train_test_split_player_shotInfo(randSeed = 546682):
 
 #######################
 
-def gen_players_shotHist(players_df, top_players_nameList):
+def gen_players_shotHist(players_df, top_players_nameList, flag='SHOT_ATTEMPTED_FLAG'):
     bins, binRange = ([25,18], [[-250,250], [-47.5,312.5]])
     
     player_shotHist = {}
     for i, player in enumerate(top_players_nameList):  
         temp = players_df[player]
         hist2d, xedges, yedges, binnumber = scipy.stats.binned_statistic_2d(temp.LOC_X, temp.LOC_Y, 
-                                                                            temp.SHOT_MADE_FLAG,
+                                                                            temp[flag],
                                                                             statistic='count',
                                                                             bins=bins, 
                                                                             range=binRange)
@@ -192,9 +193,18 @@ train_players_df, test_players_df, top_players_nameList, playersID = \
 playersName = dict((v,k) for k,v in playersID.items())
 # playersID-- key: name, value: ID
 # playersName-- key: ID, value: name
+
+
+flag_name = 'SHOT_ATTEMPTED_FLAG'
+
+
         
-players_shotHist_train, binDat = gen_players_shotHist(train_players_df, top_players_nameList)
-players_shotHist_test, binDat = gen_players_shotHist(test_players_df, top_players_nameList)
+players_shotHist_train, binDat = gen_players_shotHist(train_players_df, 
+                                                      top_players_nameList,
+                                                      flag=flag_name)
+players_shotHist_test, binDat = gen_players_shotHist(test_players_df, 
+                                                     top_players_nameList,
+                                                     flag=flag_name)
 bins, binRange, xedges, yedges, binnumber = binDat
 
 #
@@ -205,7 +215,9 @@ bins, binRange, xedges, yedges, binnumber = binDat
 #              fileName, title='raw histogram', norm_Opt='linear')
 
 
-#lgcp.run(top_players_nameList, players_shotHist_train, binDat, randSeed, phi2=40.**2)
+lgcp.run(top_players_nameList, players_shotHist_train, 
+         binDat, randSeed, 
+         phi2=sys.argv[0]**2, flag=flag_name)
 
 
 
