@@ -217,7 +217,7 @@ bins, binRange, xedges, yedges, binnumber = binDat
 
 lgcp.run(top_players_nameList, players_shotHist_train, 
          binDat, randSeed, 
-         phi2=sys.argv[0]**2, flag=flag_name)
+         phi2=float(sys.argv[0])**2, flag=flag_name)
 
 
 
