@@ -42,7 +42,7 @@ def cov_func(dist_matrix, sigma2, phi2):
 
 def run(top_players_nameList, players_shotHist_train, 
         binDat, randSeed, 
-        phi2=30.**2, sigma2=1e3, flag='allShots'):
+        phi2=30.**2, sigma2=1e3, flag='SHOT_ATTEMPTED_FLAG'):
     import time
     
     bins, binRange, xedges, yedges, binnumber = binDat
@@ -71,9 +71,11 @@ def run(top_players_nameList, players_shotHist_train,
     print('================================================')
     for i, player in enumerate(top_players_nameList):
         try:
-            norm_lambdaN_v = np.loadtxt(directory + '/norm_lambda_%s.txt'%(player))
-            if np.all(norm_lambdaN_v == norm_lambdaN_v[0]):
+            lambdaN_v = np.loadtxt(directory + '/lambda_%s.txt'%(player))
+            if np.all(lambdaN_v == lambdaN_v[0]):
                 print(player, 'BAD')
+            else:
+                print(player, 'DONE')
         except:
             print('================================================')
             start_time = time.time()
@@ -96,4 +98,5 @@ def run(top_players_nameList, players_shotHist_train,
             print("------  %s seconds ------" %(time.time() - start_time))
             if np.all(norm_lambdaN_v == norm_lambdaN_v[0]):
                 print(player, 'BAD')
-            np.savetxt(directory + '/norm_lambda_%s.txt'%(player), norm_lambdaN_v)
+            np.savetxt(directory + '/lambda_%s.txt'%(player), lambdaN_v)
+#            np.savetxt(directory + '/norm_lambda_%s.txt'%(player), norm_lambdaN_v)

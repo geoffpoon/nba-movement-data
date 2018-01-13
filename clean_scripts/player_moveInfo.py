@@ -1,4 +1,4 @@
-# =============================================================================
+(# =============================================================================
 # IMPORTS
 # =============================================================================
 
@@ -71,5 +71,5 @@ def scrape_player_XYHist_fromJSON(gameId, playersName):
 #                       where 0th entry is the ball (teamId = playerID = -1)
 #                       where z=0 except for the ball)
             for teamID, playerID, x, y, z in moment[5][1:]:
-                if 
+                if playersName
 

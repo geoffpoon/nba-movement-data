@@ -13,8 +13,9 @@ import pandas as pd
 
 import plot_court
 import lgcp_func as lgcp
+import nmf_func as nmf
 import sklearn.model_selection as sklearnMS
-from sklearn.decomposition import NMF
+
 
 import requests
 
@@ -123,21 +124,9 @@ def acquire_playerPic(PlayerID):
     img = Image.open(BytesIO(response.content))
     return img
         
-    
-#def acquire_playerPic(PlayerID, zoom, offset=(250,400)):
-#    def save_pic(playerID):
-#        f = open(PlayerID+".png", 'wb')
-#        f.write(request.urlopen("http://stats.nba.com/media/players/230x185/"+PlayerID+".png").read())
-#        f.close()
-#    
-#    fn = get_sample_data(PlayerID+".png", asfileobj=False)
-#    arr_img = plt.imread(fn, format='png')
-#    imagebox = OffsetImage(arr_img, zoom=zoom)
-#    #img.set_offset(offset)
-#    img = osb.AnnotationBbox(imagebox, offset,xycoords='data',pad=0.0, box_alignment=(1,0), frameon=False)
-#    return img
 
-def plot_shotHist(player_shotHist, player, binDat, playersID, fileName, 
+
+def plot_shotHist(player_shotHist, player, binDat, fileName, 
                   title='', norm_Opt='linear', plot_size=(5,5)):   
     bins, binRange, xedges, yedges, binnumber = binDat
     Xn_v = player_shotHist
@@ -148,6 +137,10 @@ def plot_shotHist(player_shotHist, player, binDat, playersID, fileName,
     
     fig = plt.figure(figsize=plot_size)
     ax = plt.axes()
+    
+    plot_court.draw_court(outer_lines=True, lw=1.5)
+    
+    
     cmap = plt.cm.magma_r
     if norm_Opt == 'log':
         plt.imshow(shotHist_v.T, cmap=cmap, 
@@ -156,22 +149,6 @@ def plot_shotHist(player_shotHist, player, binDat, playersID, fileName,
     else:
         plt.imshow(np.ma.masked_where(shotHist_v.T == 0., shotHist_v.T), 
                    cmap=cmap, alpha=.85, extent=extent)
-    
-    plot_court.draw_court(outer_lines=True, lw=1.5)
-    
-#    zoom = np.float(plot_size[0])/(12.0*2)
-#    img = acquire_playerPic(playersID[player])
-#    im = np.array(img).astype(np.float) / 255
-#    print(im.shape)
-#    fig.figimage(im, 0, fig.bbox.ymax - img.size[1])
-#    imagebox = osb.OffsetImage(img, zoom=zoom)
-#    xy=(250,400)
-#    img_ann = osb.AnnotationBbox(imagebox, xy,
-#                                 xybox=(120., -80.),
-#                                 xycoords='data',
-#                                 pad=0.0, boxcoords="offset points", 
-#                                 frameon=False)
-#    ax.add_artist(img_ann)
     
     ax.set_xlim([-300,300])
     ax.set_ylim([-100,500])
@@ -185,41 +162,84 @@ def plot_shotHist(player_shotHist, player, binDat, playersID, fileName,
 
 #%%
     
-randSeed = 546682
+
+# =============================================================================
+# 
+# =============================================================================
+
+def gen_shotHist_plots(player, phi=30, seed=546682):
+    dirName = 'SHOT_ATTEMPTED_FLAG/shotHist_LGCP_phi%d_seed%d/'%(phi,seed)
+    fileName = 'norm_lambda_%s.txt'%player
+    
+    outfileName = 'lgcp_shotHist_%s.png'%player
+    plot_shotHist(np.loadtxt(dirName + fileName), player, binDat, 
+                  outfileName, title='LGCP', norm_Opt='log')
+    
+    outfileName = 'raw_shotHist_%s.png'%player
+    plot_shotHist(players_shotHist_train[player], player, binDat, 
+                  outfileName, title='raw', norm_Opt='log')
 
 
-train_players_df, test_players_df, top_players_nameList, playersID = \
-        train_test_split_player_shotInfo(randSeed = randSeed)
-playersName = dict((v,k) for k,v in playersID.items())
-# playersID-- key: name, value: ID
-# playersName-- key: ID, value: name
+# =============================================================================
+# 
+# =============================================================================
 
 
-flag_name = 'SHOT_ATTEMPTED_FLAG'
+
+# =============================================================================
+# 
+# =============================================================================
 
 
-        
-players_shotHist_train, binDat = gen_players_shotHist(train_players_df, 
-                                                      top_players_nameList,
-                                                      flag=flag_name)
-players_shotHist_test, binDat = gen_players_shotHist(test_players_df, 
-                                                     top_players_nameList,
-                                                     flag=flag_name)
-bins, binRange, xedges, yedges, binnumber = binDat
+if __name__ == '__main__':
 
-#
-#player = 'James Harden'
-#fileName = 'raw_shotHist_%s.png'%player.replace(' ', '')
-##print(fileName)
-#plot_shotHist(players_shotHist_train[player], player, binDat, playersID, 
-#              fileName, title='raw histogram', norm_Opt='linear')
+    randSeed = 546682
 
+    train_players_df, test_players_df, top_players_nameList, playersID = \
+            train_test_split_player_shotInfo(randSeed = randSeed)
+    playersName = dict((v,k) for k,v in playersID.items())
+    # playersID-- key: name, value: ID
+    # playersName-- key: ID, value: name
+    
+    
+    flag_name = 'SHOT_ATTEMPTED_FLAG'
+    
+    
+            
+    players_shotHist_train, binDat = gen_players_shotHist(train_players_df, 
+                                                          top_players_nameList,
+                                                          flag=flag_name)
+    players_shotHist_test, binDat = gen_players_shotHist(test_players_df, 
+                                                         top_players_nameList,
+                                                         flag=flag_name)
+    bins, binRange, xedges, yedges, binnumber = binDat
+    
+    
+    #arg1: phi (the spatial correlation length of shot behavior)
+    #arg2: where to start on top_players_nameList
+    
+    phi = float(sys.argv[1])
+    if len(sys.argv) == 3:
+        i = int(sys.argv[2])
+    else:
+        i = 0
+    
+    lgcp.run(top_players_nameList[i:], players_shotHist_train, 
+             binDat, randSeed, 
+             phi2=phi**2, flag=flag_name)
+    
+    LL = np.zeros((len(top_players_nameList), np.prod(bins)))
+    directory = flag_name + '/shotHist_LGCP_phi%d_seed%d'%(phi, randSeed)
+    for i, player in enumerate(top_players_nameList):
+        norm_lambdaN_v = np.loadtxt(directory + '/norm_lambda_%s.txt'%(player))
+        LL[i,:] = norm_lambdaN_v[:]
+    
+    n_comp = 10
+    W_norm, H_norm = nmf.run(LL, n_comp=n_comp)
 
-lgcp.run(top_players_nameList, players_shotHist_train, 
-         binDat, randSeed, 
-         phi2=float(sys.argv[0])**2, flag=flag_name)
-
-
+    for i in range(n_comp):
+        plot_shotHist(H_norm[i,:], 'NMF %d'%i, binDat, 'shotHist_basisVec_%d.png'%i, 
+                      title='', norm_Opt='linear', plot_size=(5,5))
 
 
 
