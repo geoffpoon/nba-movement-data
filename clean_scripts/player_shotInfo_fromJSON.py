@@ -70,6 +70,48 @@ def train_test_split_player_shotInfo(season_string, randSeed = 546682):
     shots_dat = pd.DataFrame(d['resultSets'][0]['rowSet'], 
                              columns=d['resultSets'][0]['headers'])
     
+    #    headers_2015 = ['GRID_TYPE', 'GAME_ID', 'GAME_EVENT_ID', 
+    #                       'PLAYER_ID', 'PLAYER_NAME', 'TEAM_ID', 'TEAM_NAME', 
+    #                       'PERIOD', 'MINUTES_REMAINING', 'SECONDS_REMAINING', 
+    #                       'EVENT_TYPE', 'ACTION_TYPE', 'SHOT_TYPE',
+    #                       'SHOT_ZONE_BASIC', 'SHOT_ZONE_AREA', 
+    #                       'SHOT_ZONE_RANGE', 'SHOT_DISTANCE',
+    #                       'LOC_X', 'LOC_Y', 
+    #                       'SHOT_ATTEMPTED_FLAG', 'SHOT_MADE_FLAG', 
+    #                       'GAME_DATE', 'HTM', 'VTM']       # HTM = Home team, VTM = Visiting team
+    
+    df = pd.DataFrame(shots_dat, 
+                      columns = ['PLAYER_ID', 'PLAYER_NAME', 
+                                 'TEAM_ID', 'TEAM_NAME', 'ACTION_TYPE',
+                                 'SHOT_DISTANCE', 'SHOT_TYPE', 
+                                 'LOC_X', 'LOC_Y', 
+                                 'SHOT_ATTEMPTED_FLAG', 'SHOT_MADE_FLAG'])
+    
+    num_players = 300
+    top_players_shotNum = df.PLAYER_NAME.value_counts()[:num_players]
+    top_players_nameList = top_players_shotNum.index.tolist()
+
+    train_players_df = {}
+    test_players_df = {}
+    playersID = {}
+    for i, player in enumerate(set(top_players_nameList)):  
+        player_df = df[df.PLAYER_NAME == player]
+        train_players_df[player], test_players_df[player] = \
+                sklearnMS.train_test_split(player_df, test_size=0.2, random_state=randSeed)
+        playersID[player] = player_df.PLAYER_ID.unique()[0]
+        
+    return train_players_df, test_players_df, top_players_nameList, playersID
+
+
+def full_player_shotInfo(season_string, randSeed = 546682):
+    shots_path = os.path.abspath(os.path.join(os.getcwd(), os.pardir)) + '/data/shots/shots_data_%s.json'%season_string
+    with open(shots_path, 'r') as json_data:
+        d = json.load(json_data)
+        json_data.close()
+        
+    shots_dat = pd.DataFrame(d['resultSets'][0]['rowSet'], 
+                             columns=d['resultSets'][0]['headers'])
+    
 #    headers_2015 = ['GRID_TYPE', 'GAME_ID', 'GAME_EVENT_ID', 
 #                       'PLAYER_ID', 'PLAYER_NAME', 'TEAM_ID', 'TEAM_NAME', 
 #                       'PERIOD', 'MINUTES_REMAINING', 'SECONDS_REMAINING', 
@@ -91,13 +133,11 @@ def train_test_split_player_shotInfo(season_string, randSeed = 546682):
     top_players_shotNum = df.PLAYER_NAME.value_counts()[:num_players]
     top_players_nameList = top_players_shotNum.index.tolist()
 
-    train_players_df = {}
-    test_players_df = {}
+    full_players_df = {}
     playersID = {}
     for i, player in enumerate(set(top_players_nameList)):  
         player_df = df[df.PLAYER_NAME == player]
-        train_players_df[player], test_players_df[player] = \
-                sklearnMS.train_test_split(player_df, test_size=0.2, random_state=randSeed)
+        full_players_df[player] = player_df
         playersID[player] = player_df.PLAYER_ID.unique()[0]
         
     return train_players_df, test_players_df, top_players_nameList, playersID
@@ -241,11 +281,11 @@ if __name__ == '__main__':
 
     
     lgcp.run(top_players_nameList[i:], players_shotHist_train, 
-             binDat, randSeed, 
+             binDat, randSeed, season_string,
              phi2=phi**2, flag=flag_name)
     
     LL = np.zeros((len(top_players_nameList), np.prod(bins)))
-    directory = flag_name + '/shotHist_LGCP_phi%d_seed%d'%(phi, randSeed)
+    directory = '%s/%s/shotHist_LGCP_phi%d_seed%d'%(season_string, flag_name, phi, randSeed)
     for i, player in enumerate(top_players_nameList):
         lambdaN_v = np.loadtxt(directory + '/lambda_%s.txt'%(player))
         norm_lambdaN_v = lambdaN_v / np.sum(lambdaN_v)

@@ -1,0 +1,427 @@
+Computing LL, normalized Lambda for each player
+================================================
+================================================
+Russell Westbrook DONE
+Kyrie Irving DONE
+Bradley Beal DONE
+LeBron James DONE
+James Harden DONE
+CJ McCollum DONE
+DeMar DeRozan DONE
+DeMarcus Cousins DONE
+LaMarcus Aldridge DONE
+Giannis Antetokounmpo DONE
+Klay Thompson DONE
+Kristaps Porzingis DONE
+Andrew Wiggins DONE
+TJ Warren DONE
+Dennis Schroder DONE
+Harrison Barnes DONE
+Lou Williams DONE
+Victor Oladipo DONE
+Damian Lillard DONE
+Kemba Walker DONE
+Carmelo Anthony DONE
+Jimmy Butler DONE
+Paul George DONE
+Khris Middleton DONE
+Kevin Durant DONE
+Donovan Mitchell DONE
+Tyreke Evans DONE
+Marc Gasol DONE
+Karl-Anthony Towns DONE
+Devin Booker DONE
+Jrue Holiday DONE
+Eric Gordon DONE
+Tobias Harris DONE
+Anthony Davis DONE
+Goran Dragic DONE
+Kyle Kuzma DONE
+Jamal Murray DONE
+Kevin Love DONE
+Ben Simmons DONE
+Brandon Ingram DONE
+Nikola Vucevic DONE
+Lauri Markkanen DONE
+Joel Embiid DONE
+Stephen Curry DONE
+Gary Harris DONE
+Jordan Clarkson DONE
+Kris Dunn DONE
+Will Barton DONE
+Jusuf Nurkic DONE
+Justin Holiday DONE
+Dennis Smith Jr. DONE
+John Wall DONE
+Aaron Gordon DONE
+Zach Randolph DONE
+Jonathon Simmons DONE
+Evan Fournier DONE
+Avery Bradley DONE
+Rodney Hood DONE
+JJ Redick DONE
+Taurean Prince DONE
+Kyle Lowry DONE
+Robin Lopez DONE
+Wesley Matthews DONE
+Courtney Lee DONE
+Eric Bledsoe DONE
+Jaylen Brown DONE
+Blake Griffin DONE
+Austin Rivers DONE
+Jeremy Lamb DONE
+Thaddeus Young DONE
+Dirk Nowitzki DONE
+Spencer Dinwiddie DONE
+Dario Saric DONE
+Josh Richardson DONE
+J.J. Barea DONE
+Bojan Bogdanovic DONE
+Malcolm Brogdon DONE
+Rondae Hollis-Jefferson DONE
+Buddy Hield DONE
+Kent Bazemore DONE
+Jayson Tatum DONE
+Al Horford DONE
+Otto Porter Jr. DONE
+Dwight Howard DONE
+Nikola Jokic DONE
+Dion Waiters DONE
+Robert Covington DONE
+Marcus Smart DONE
+Reggie Jackson DONE
+Kentavious Caldwell-Pope DONE
+E'Twaun Moore DONE
+Ricky Rubio DONE
+Andre Drummond DONE
+Caris LeVert DONE
+Marco Belinelli DONE
+Serge Ibaka DONE
+Tyler Johnson DONE
+Lonzo Ball DONE
+Julius Randle DONE
+Denzel Valentine DONE
+DeMarre Carroll DONE
+Allen Crabbe DONE
+Josh Jackson DONE
+Terry Rozier DONE
+Kelly Oubre Jr. DONE
+Trevor Ariza DONE
+Ish Smith DONE
+Taj Gibson DONE
+Darren Collison DONE
+Enes Kanter DONE
+Jamal Crawford DONE
+Dwyane Wade DONE
+Willie Cauley-Stein DONE
+Domantas Sabonis DONE
+Derrick Favors DONE
+Myles Turner DONE
+Yogi Ferrell DONE
+Pau Gasol DONE
+Jeff Teague DONE
+Wayne Ellington DONE
+Brook Lopez DONE
+Frank Kaminsky DONE
+Elfrid Payton DONE
+Michael Beasley DONE
+De'Aaron Fox DONE
+Lance Stephenson DONE
+Patty Mills DONE
+Steven Adams DONE
+Bogdan Bogdanovic DONE
+Joe Ingles DONE
+Jeff Green DONE
+Bobby Portis DONE
+Ryan Anderson DONE
+Clint Capela DONE
+Tim Hardaway Jr. DONE
+Chris Paul DONE
+Wilson Chandler DONE
+Evan Turner DONE
+Mike James DONE
+Joe Harris DONE
+Rudy Gay DONE
+Tyler Ulis DONE
+Alec Burks DONE
+Kelly Olynyk DONE
+DeAndre Jordan DONE
+Jae Crowder DONE
+Draymond Green DONE
+Kyle Korver DONE
+Garrett Temple DONE
+Bryn Forbes DONE
+Marcin Gortat DONE
+Cory Joseph DONE
+Jarrett Jack DONE
+JR Smith DONE
+Michael Kidd-Gilchrist DONE
+Markieff Morris DONE
+Raymond Felton DONE
+Jerian Grant DONE
+Jonas Valanciunas DONE
+Doug McDermott DONE
+Ersan Ilyasova DONE
+George Hill DONE
+James Johnson DONE
+CJ Miles DONE
+Trey Lyles DONE
+Dejounte Murray DONE
+Troy Daniels DONE
+Mario Chalmers DONE
+Marvin Williams DONE
+John Collins DONE
+Marquese Chriss DONE
+Dillon Brooks DONE
+Manu Ginobili DONE
+Danny Green DONE
+Shabazz Napier DONE
+Emmanuel Mudiay DONE
+Mike Scott DONE
+Hassan Whiteside DONE
+Fred VanVleet DONE
+John Henson DONE
+Nicolas Batum DONE
+Devin Harris DONE
+Norman Powell DONE
+Jerryd Bayless DONE
+Skal Labissiere DONE
+Frank Ntilikina DONE
+Thabo Sefolosha DONE
+Pascal Siakam DONE
+Al-Farouq Aminu DONE
+Aron Baynes DONE
+Nick Young DONE
+Marreese Speights DONE
+Stanley Johnson DONE
+Jodie Meeks DONE
+Darius Miller DONE
+Dragan Bender DONE
+Jerami Grant DONE
+Jawun Evans DONE
+Marcus Morris DONE
+Mason Plumlee DONE
+Tony Snell DONE
+Nikola Mirotic DONE
+Wesley Johnson DONE
+Kyle Anderson DONE
+Pat Connaughton DONE
+D.J. Augustin DONE
+Alex Len DONE
+Andrew Harrison DONE
+Gorgui Dieng DONE
+JaMychal Green DONE
+Mario Hezonja DONE
+T.J. McConnell DONE
+D'Angelo Russell DONE
+Paul Millsap DONE
+Trevor Booker DONE
+OG Anunoby DONE
+Frank Mason DONE
+Dwight Powell DONE
+David West DONE
+Kyle O'Quinn DONE
+Langston Galloway DONE
+Luke Kennard DONE
+Tyler Zeller DONE
+PJ Tucker DONE
+Montrezl Harrell DONE
+Timothe Luwawu-Cabarrot DONE
+Malik Monk DONE
+Anthony Tolliver DONE
+Kosta Koufos DONE
+Larry Nance Jr. DONE
+Jakob Poeltl DONE
+Quincy Acy DONE
+Jarell Martin DONE
+Andre Iguodala DONE
+Rajon Rondo DONE
+Dante Cunningham DONE
+Chandler Parsons DONE
+Delon Wright DONE
+================================================
+James Ennis III
+------  142.83687210083008 seconds ------
+================================================
+Terrence Ross
+------  271.3976991176605 seconds ------
+================================================
+Malcolm Delaney
+------  212.46747994422913 seconds ------
+================================================
+Maxi Kleber
+------  66.53273701667786 seconds ------
+================================================
+Justise Winslow
+------  106.14809703826904 seconds ------
+================================================
+Jameer Nelson
+------  109.22377705574036 seconds ------
+================================================
+Maurice Harkless
+------  218.55220317840576 seconds ------
+================================================
+Mike Conley
+------  76.14904499053955 seconds ------
+================================================
+Sam Dekker
+------  87.79774785041809 seconds ------
+================================================
+Dewayne Dedmon
+------  73.55376887321472 seconds ------
+================================================
+Jonas Jerebko
+------  121.70569491386414 seconds ------
+================================================
+Thon Maker
+------  267.22856974601746 seconds ------
+================================================
+Paul Zipser
+------  77.51888418197632 seconds ------
+================================================
+Tyus Jones
+------  259.6435720920563 seconds ------
+================================================
+Josh Hart
+------  76.94109392166138 seconds ------
+================================================
+David Nwaba
+------  254.81592917442322 seconds ------
+================================================
+Ian Clark
+------  149.33322477340698 seconds ------
+================================================
+Shaun Livingston
+------  171.2101719379425 seconds ------
+================================================
+Omri Casspi
+------  143.13879013061523 seconds ------
+================================================
+Bismack Biyombo
+------  251.39863276481628 seconds ------
+================================================
+Ed Davis
+------  113.45895600318909 seconds ------
+================================================
+Davis Bertans
+------  145.62082505226135 seconds ------
+================================================
+Greg Monroe
+------  122.1775529384613 seconds ------
+================================================
+Reggie Bullock
+------  88.43070101737976 seconds ------
+================================================
+Luke Babbitt
+------  105.23615002632141 seconds ------
+================================================
+Andre Roberson
+------  66.03479504585266 seconds ------
+================================================
+Jarrett Allen
+------  251.39647793769836 seconds ------
+================================================
+Justin Jackson
+------  279.42158484458923 seconds ------
+================================================
+Daniel Theis
+------  251.24116802215576 seconds ------
+================================================
+C.J. Williams
+------  382.0949909687042 seconds ------
+================================================
+Bam Adebayo
+------  424.4313769340515 seconds ------
+================================================
+Joe Johnson
+------  193.33363103866577 seconds ------
+================================================
+Lance Thomas
+------  750.9651267528534 seconds ------
+================================================
+Isaiah Taylor
+------  233.54926896095276 seconds ------
+================================================
+Alex Abrines
+------  280.0845670700073 seconds ------
+================================================
+Ben McLemore
+------  130.70838618278503 seconds ------
+================================================
+Amir Johnson
+------  242.93292689323425 seconds ------
+================================================
+Danilo Gallinari
+------  434.69300413131714 seconds ------
+================================================
+Patrick McCaw
+------  396.0043408870697 seconds ------
+================================================
+Tyson Chandler
+------  129.49862718582153 seconds ------
+================================================
+Luc Mbah a Moute
+------  364.13037633895874 seconds ------
+================================================
+Nene
+------  188.86566710472107 seconds ------
+================================================
+Jordan Bell
+------  139.46695017814636 seconds ------
+================================================
+Rudy Gobert
+------  425.7166168689728 seconds ------
+================================================
+Johnny O'Bryant III
+------  232.10827779769897 seconds ------
+================================================
+Tony Parker
+------  219.60890769958496 seconds ------
+================================================
+Zaza Pachulia
+------  248.82246613502502 seconds ------
+================================================
+Kenneth Faried
+------  260.7111690044403 seconds ------
+================================================
+Richaun Holmes
+------  141.68088293075562 seconds ------
+================================================
+Tomas Satoransky
+------  436.5651898384094 seconds ------
+================================================
+Milos Teodosic
+------  255.17097902297974 seconds ------
+================================================
+Patrick Beverley
+------  387.1035101413727 seconds ------
+================================================
+Channing Frye
+------  247.63064789772034 seconds ------
+================================================
+Patrick Patterson
+------  178.0062701702118 seconds ------
+================================================
+Michael Carter-Williams
+------  136.9809820652008 seconds ------
+================================================
+Nemanja Bjelica
+------  366.4906289577484 seconds ------
+================================================
+Tyler Cavanaugh
+------  253.77751111984253 seconds ------
+================================================
+Sindarius Thornwell
+------  224.54607582092285 seconds ------
+================================================
+Matthew Dellavedova
+------  375.07351899147034 seconds ------
+================================================
+Sean Kilpatrick
+------  318.5921120643616 seconds ------
+================================================
+Dwayne Bacon
+------  132.72718691825867 seconds ------
+================================================
+Shelvin Mack
+------  64.15598583221436 seconds ------

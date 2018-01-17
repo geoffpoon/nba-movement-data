@@ -41,7 +41,7 @@ def cov_func(dist_matrix, sigma2, phi2):
     return sigma2 * np.exp( -(dist_matrix**2) / (2 * phi2) )    
 
 def run(top_players_nameList, players_shotHist_train, 
-        binDat, randSeed, 
+        binDat, randSeed, season_string,
         phi2=30.**2, sigma2=1e3, flag='SHOT_ATTEMPTED_FLAG'):
     import time
     
@@ -62,7 +62,7 @@ def run(top_players_nameList, players_shotHist_train,
     
     #-------------------------------------------
     
-    directory = flag + '/shotHist_LGCP_phi%d_seed%d'%(phi2**0.5, randSeed)
+    directory = '%s/%s/shotHist_LGCP_phi%d_seed%d'%(season_string, flag, phi2**0.5, randSeed)
     if not os.path.exists(directory):
         os.makedirs(directory)
     
